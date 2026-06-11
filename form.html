@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Membership Application | Guru Nanak Darbar Queenstown</title>
+  <meta name="description" content="Apply for membership at Guru Nanak Darbar Queenstown — Queenstown's first Gurudwara Sahib. Join our Sikh community in New Zealand.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://gurunanakdarbarqueenstown.org/form.html">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="gndq-logo.png">
+  <style>
+    /* Inline result messages */
+    .result-msg {
+      display: none;
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      margin-top: 20px;
+      font-size: .95rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+    .result-msg.success {
+      background: var(--success-lt);
+      border: 1.5px solid #a5d6a7;
+      color: #1b5e20;
+    }
+    .result-msg.error {
+      background: var(--error-lt);
+      border: 1.5px solid #ef9a9a;
+      color: #7f0000;
+    }
+    .result-msg i { font-size: 1.6rem; display: block; margin-bottom: 10px; }
+    .result-msg strong { display: block; font-size: 1.05rem; margin-bottom: 6px; }
+
+    /* Document email notice */
+    .doc-notice {
+      background: #fff8e1;
+      border: 1.5px solid #f59e0b;
+      border-left: 5px solid #f59e0b;
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin-bottom: 24px;
+      font-size: .88rem;
+      line-height: 1.7;
+      color: #7c5000;
+    }
+    .doc-notice strong { color: #5c3a00; }
+    .doc-notice .doc-email {
+      display: inline-block;
+      margin-top: 8px;
+      font-weight: 700;
+      color: var(--accent);
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo-container">
+        <img src="gndq-logo.png" alt="GNDQ Logo" class="logo-img">
+        <div class="site-title">
+          <h1>Guru Nanak Darbar Queenstown</h1>
+          <p>Queenstown, New Zealand</p>
+        </div>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#events">Smagams</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="form.html" class="nav-cta active">Membership</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h2>Membership Application</h2>
+    <p>Join the Guru Nanak Darbar Queenstown community</p>
+    <div class="title-border"></div>
+  </div>
+
+  <div class="form-wrap">
+
+    <!-- Annual fee notice -->
+    <div class="fee-badge">
+      <div class="fee-badge-icon">&#128142;</div>
+      <div class="fee-badge-text">
+        <strong>Annual Membership Fee: NZD $1,000</strong>
+        <span>Purpose: Development &amp; Establishment of GNDQ Gurudwara Sahib</span>
+      </div>
+    </div>
+
+    <!-- Document email notice -->
+    <div class="doc-notice">
+      <i class="fas fa-info-circle"></i>
+      <strong>Photo &amp; ID Documents</strong>
+      After submitting this form, you will need to email the following to us:
+      <ul style="margin: 8px 0 0 18px; padding:0;">
+        <li>A recent <strong>passport-size photo</strong> (JPG or PNG)</li>
+        <li>A copy of your <strong>Passport or Driving Licence</strong></li>
+      </ul>
+      <span class="doc-email">
+        <i class="fas fa-envelope"></i>
+        gurunanakdarbarqueenstownnz@gmail.com
+      </span><br>
+      <small style="margin-top:6px;display:block;">Use your full name as the email subject. If we don't receive your documents, our team will send you a reminder.</small>
+    </div>
+
+    <!-- =====================================================
+         FORM — Web3Forms AJAX (free tier, no file uploads)
+         Inline success / failure — no page redirect
+         ===================================================== -->
+    <form id="membershipForm" novalidate>
+
+      <!-- Web3Forms hidden config -->
+      <input type="hidden" name="access_key" value="1839333a-4587-453b-a59a-5cc71ac53f74">
+      <input type="hidden" name="subject" value="NEW Membership Application — GNDQ">
+      <input type="hidden" name="from_name" value="GNDQ Membership Form">
+      <!-- Spam honeypot -->
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+      <!-- ─── 1. Personal Details ─────────────────────────── -->
+      <div class="form-section-block">
+        <h3><i class="fas fa-user"></i> Personal Details</h3>
+        <div class="form-grid">
+          <div class="form-field field-full">
+            <label for="fullName">Full Name <span class="req">*</span></label>
+            <input type="text" id="fullName" name="Full Name" placeholder="As per official ID" required>
+          </div>
+          <div class="form-field">
+            <label for="dob">Date of Birth <span class="req">*</span></label>
+            <input type="date" id="dob" name="Date of Birth" required>
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="phone" name="Phone" placeholder="+64 21 000 0000" required>
+          </div>
+          <div class="form-field field-full">
+            <label for="email">Email Address <span class="req">*</span></label>
+            <input type="email" id="email" name="Email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-field field-full">
+            <label for="address">Residential Address <span class="req">*</span></label>
+            <input type="text" id="address" name="Residential Address" placeholder="Street, Suburb, City, Postcode" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── 2. Emergency Contact ───────────────────────── -->
+      <div class="form-section-block">
+        <h3><i class="fas fa-phone-alt"></i> Emergency Contact</h3>
+        <div class="form-grid cols-3">
+          <div class="form-field">
+            <label for="ecName">Contact Name <span class="req">*</span></label>
+            <input type="text" id="ecName" name="Emergency Contact Name" placeholder="Full name" required>
+          </div>
+          <div class="form-field">
+            <label for="ecPhone">Contact Phone <span class="req">*</span></label>
+            <input type="tel" id="ecPhone" name="Emergency Contact Phone" placeholder="+64 21 000 0000" required>
+          </div>
+          <div class="form-field">
+            <label for="ecRel">Relationship <span class="req">*</span></label>
+            <input type="text" id="ecRel" name="Emergency Contact Relationship" placeholder="e.g. Spouse, Parent" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── 3. Membership Details ──────────────────────── -->
+      <div class="form-section-block">
+        <h3><i class="fas fa-file-invoice-dollar"></i> Membership Details</h3>
+        <div class="form-grid">
+          <div class="form-field">
+            <label>Payment Method <span class="req">*</span></label>
+            <div class="radio-group" role="radiogroup">
+              <label class="radio-pill">
+                <input type="radio" name="Payment Method" value="Bank Transfer" required>
+                <i class="fas fa-university"></i> Bank Transfer
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="Payment Method" value="Cash">
+                <i class="fas fa-money-bill-wave"></i> Cash
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="Payment Method" value="Other">
+                <i class="fas fa-ellipsis-h"></i> Other
+              </label>
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Tax Receipt Required? <span class="req">*</span></label>
+            <div class="radio-group" role="radiogroup">
+              <label class="radio-pill">
+                <input type="radio" name="Tax Receipt Required" value="Yes" required>
+                <i class="fas fa-check"></i> Yes
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="Tax Receipt Required" value="No">
+                <i class="fas fa-times"></i> No
+              </label>
+            </div>
+          </div>
+          <div class="form-field field-full">
+            <label for="skills">Skills You Can Offer</label>
+            <textarea id="skills" name="Skills Offered" placeholder="e.g. Cooking, IT, Accounting, Teaching, Maintenance, Photography…" rows="3"></textarea>
+            <small>Optional — helps us know how you can contribute to Seva</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── 4. Participation & Seva ───────────────────── -->
+      <div class="form-section-block">
+        <h3><i class="fas fa-hands-helping"></i> Participation &amp; Seva</h3>
+        <div class="checkbox-item">
+          <input type="checkbox" id="participation" name="Active Participation" value="Yes">
+          <label for="participation">I actively participate in GNDQ programs regularly</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="seva" name="Seva 2+ Years" value="Yes">
+          <label for="seva">I have been doing Seva at GNDQ for at least 2 years</label>
+        </div>
+      </div>
+
+      <!-- ─── 5. Declaration ─────────────────────────────── -->
+      <div class="form-section-block">
+        <h3><i class="fas fa-scroll"></i> Declaration</h3>
+        <div class="checkbox-item">
+          <input type="checkbox" id="dec1" name="Declaration 1" value="Agreed" required>
+          <label for="dec1">I belong to the Sikh faith and follow Sri Guru Granth Sahib Ji <span class="req">*</span></label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="dec2" name="Declaration 2" value="Agreed" required>
+          <label for="dec2">I follow the teachings of the Ten Gurus <span class="req">*</span></label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="dec3" name="Declaration 3" value="Agreed" required>
+          <label for="dec3">I will fulfill all dues and responsibilities as a member <span class="req">*</span></label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="dec4" name="Declaration 4" value="Agreed" required>
+          <label for="dec4">I support the establishment of Gurudwara Sahib in Queenstown <span class="req">*</span></label>
+        </div>
+      </div>
+
+      <!-- ─── 6. Privacy Consent ────────────────────────── -->
+      <div class="privacy-block" style="margin-bottom:24px;">
+        <div class="checkbox-item">
+          <input type="checkbox" id="privacy" name="Privacy Consent" value="Agreed" required>
+          <label for="privacy">
+            <strong>Privacy Consent:</strong> I consent to GNDQ collecting this data for membership and
+            communication purposes in accordance with the <strong>NZ Privacy Act</strong>. <span class="req">*</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- ─── 7. Signature ──────────────────────────────── -->
+      <div class="form-section-block">
+        <h3><i class="fas fa-pen-nib"></i> Signature &amp; Date</h3>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="signature">Signature (type your full name) <span class="req">*</span></label>
+            <input type="text" id="signature" name="Signature" class="sig-input" placeholder="Type your full name" required>
+          </div>
+          <div class="form-field">
+            <label for="sigDate">Date <span class="req">*</span></label>
+            <input type="date" id="sigDate" name="Date" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <i class="fas fa-paper-plane"></i> Submit Membership Application
+      </button>
+
+      <!-- Inline result messages -->
+      <div class="result-msg success" id="successMsg">
+        <i class="fas fa-check-circle"></i>
+        <strong>Application Submitted Successfully!</strong>
+        Your membership application has been received by the GNDQ team. We will be in touch within 3&ndash;5 business days.<br><br>
+        <strong>Next step &mdash; please email your documents to:</strong><br>
+        <a href="mailto:gurunanakdarbarqueenstownnz@gmail.com" style="color:var(--success);font-weight:700;">
+          gurunanakdarbarqueenstownnz@gmail.com
+        </a><br>
+        <small style="margin-top:6px;display:block;">Include your full name in the subject line and attach your passport-size photo and a copy of your Passport or Driving Licence. If you don't send them, our team will email you a reminder.</small>
+      </div>
+
+      <div class="result-msg error" id="errorMsg">
+        <i class="fas fa-exclamation-circle"></i>
+        <strong>Submission Failed</strong>
+        Something went wrong sending your application. Please try again, or contact us directly at
+        <a href="mailto:gurunanakdarbarqueenstownnz@gmail.com" style="color:var(--error);font-weight:600;">
+          gurunanakdarbarqueenstownnz@gmail.com
+        </a>
+      </div>
+
+      <!-- OFFICE USE ONLY — hidden on screen, visible on print -->
+      <div class="office-use">
+        <h3>&#9632; OFFICE USE ONLY</h3>
+        <div class="office-grid">
+          <div class="office-field">
+            <label>Member ID</label>
+            <span class="write-line"></span>
+          </div>
+          <div class="office-field">
+            <label>Date Approved</label>
+            <span class="write-line"></span>
+          </div>
+          <div class="office-field">
+            <label>Receipt No.</label>
+            <span class="write-line"></span>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Guru Nanak Darbar Queenstown | Charitable Trust Regd. No. CC63766</p>
+    <p style="margin-top:6px;">Made by: <a href="https://ladla.co.nz" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.55);text-decoration:underline;">LADLA</a></p>
+    <p class="copyright">&copy; 2025 &mdash; All rights reserved | Built with Seva</p>
+  </footer>
+
+  <script>
+    // Auto-populate today's date
+    document.getElementById('sigDate').value = new Date().toISOString().split('T')[0];
+
+    // Mobile menu
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navLinks  = document.getElementById('navLinks');
+    if (mobileBtn) mobileBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+    // Form submission via fetch (AJAX) — no page redirect
+    document.getElementById('membershipForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const form      = this;
+      const btn       = document.getElementById('submitBtn');
+      const successEl = document.getElementById('successMsg');
+      const errorEl   = document.getElementById('errorMsg');
+
+      // Hide previous messages
+      successEl.style.display = 'none';
+      errorEl.style.display   = 'none';
+
+      // Basic HTML5 validation check
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // Disable button & show spinner
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting&hellip;';
+
+      try {
+        const formData = new FormData(form);
+        // Convert to JSON for Web3Forms
+        const object   = {};
+        formData.forEach((val, key) => { object[key] = val; });
+
+        const res  = await fetch('https://api.web3forms.com/submit', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body:    JSON.stringify(object)
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          // Show success, hide form fields
+          successEl.style.display = 'block';
+          successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          btn.style.display = 'none';
+          // Disable all inputs so it can't be re-submitted
+          form.querySelectorAll('input, textarea, button').forEach(el => el.disabled = true);
+        } else {
+          throw new Error(data.message || 'Submission failed');
+        }
+      } catch (err) {
+        errorEl.style.display = 'block';
+        errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Re-enable button for retry
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Try Again';
+      }
+    });
+  </script>
+</body>
+</html>

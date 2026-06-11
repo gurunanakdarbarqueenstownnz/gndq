@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Membership Application (with Attachments) | GNDQ</title>
+  <meta name="description" content="Apply for GNDQ membership — Guru Nanak Darbar Queenstown.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="gndq-logo.png">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo-container">
+        <img src="gndq-logo.png" alt="GNDQ Logo" class="logo-img">
+        <div class="site-title">
+          <h1>Guru Nanak Darbar Queenstown</h1>
+          <p>Queenstown, New Zealand</p>
+        </div>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#events">Smagams</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="form.html" class="nav-cta active">Membership</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h2>Membership Application</h2>
+    <p>Join the Guru Nanak Darbar Queenstown community</p>
+    <div class="title-border"></div>
+  </div>
+
+  <div class="form-wrap">
+
+    <!-- Annual fee notice -->
+    <div class="fee-badge">
+      <div class="fee-badge-icon">&#128142;</div>
+      <div class="fee-badge-text">
+        <strong>Annual Membership Fee: NZD $1,000</strong>
+        <span>Purpose: Development &amp; Establishment of GNDQ Gurudwara Sahib</span>
+      </div>
+    </div>
+
+    <!-- NOTE: This version requires Web3Forms Pro for file uploads -->
+    <form
+      action="/success.html"
+      method="POST"
+      enctype="multipart/form-data"
+      id="membershipForm"
+      name="membership-application"
+      data-netlify="true"
+    >
+      <!-- Netlify Forms config -->
+      <input type="hidden" name="form-name" value="membership-application">
+      <!-- Spam honeypot -->
+      <p style="display:none"><label>Leave blank: <input name="bot-field"></label></p>
+
+      <!-- ─── 1. Personal Details ─────────────────────────── -->
+      <div class="form-section-block">
+        <h3><i class="fas fa-user"></i> Personal Details</h3>
+        <div class="form-grid">
+          <div class="form-field field-full">
+            <label for="fullName">Full Name <span class="req">*</span></label>
+            <input type="text" id="fullName" name="Full Name" placeholder="As per official ID" required>
+          </div>
+          <div class="form-field">
+            <label for="dob">Date of Birth <span class="req">*</span></label>
+            <input type="date" id="dob" name="Date of Birth" required>
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="phone" name="Phone" placeholder="+64 21 000 0000" required>
+          </div>
+          <div class="form-field field-full">
+            <label for="email">Email Address <span class="req">*</span></label>
+            <input type="email" id="email" name="Email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-field field-full">
+            <label for="address">Residential Address <span class="req">*</span></label>
+            <input type="text" id="address" name="Residential Address" placeholder="Street, Suburb, City, Postcode" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── 2. Documents ───────────────────────────────── -->
+      <div class="form-section-block">
+        <h3><i class="fas fa-paperclip"></i> Required Documents</h3>
+        <div class="form-grid">
+          <div class="form-field">
+            <label>Passport-Size Photo <span class="req">*</span></label>
+            <div class="file-upload-wrapper">
+              <input type="file" name="Passport Photo" id="photoFile" accept="image/jpeg,image/png,image/jpg" required>
+              <div class="file-upload-btn">
+                <i class="fas fa-camera"></i>
+                <span id="photoLabel">Choose photo (JPG/PNG, max 5 MB)</span>
+              </div>
+            </div>
+            <small>Recent passport-size photo, clear face visible</small>
+          </div>
+          <div class="form-field">
+            <label>Copy of Passport <em>or</em> Driving Licence <span class="req">*</span></label>
+            <div class="file-upload-wrapper">
+              <input type="file" name="ID Document" id="idFile" accept="image/jpeg,image/png,image/jpg,application/pdf" required>
+              <div class="file-upload-btn">
+                <i class="fas fa-id-card"></i>
+                <span id="idLabel">Choose file (JPG, PNG or PDF)</span>
+              </div>
+            </div>
+            <small>Must show full name, photo, and date of birth</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── 3. Emergency Contact ───────────────────────── -->
+      <div class="form-section-block">
+        <h3><i class="fas fa-phone-alt"></i> Emergency Contact</h3>
+        <div class="form-grid cols-3">
+          <div class="form-field">
+            <label for="ecName">Contact Name <span class="req">*</span></label>
+            <input type="text" id="ecName" name="Emergency Contact Name" placeholder="Full name" required>
+          </div>
+          <div class="form-field">
+            <label for="ecPhone">Contact Phone <span class="req">*</span></label>
+            <input type="tel" id="ecPhone" name="Emergency Contact Phone" placeholder="+64 21 000 0000" required>
+          </div>
+          <div class="form-field">
+            <label for="ecRel">Relationship <span class="req">*</span></label>
+            <input type="text" id="ecRel" name="Emergency Contact Relationship" placeholder="e.g. Spouse, Parent" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── 4. Membership Details ──────────────────────── -->
+      <div class="form-section-block">
+        <h3><i class="fas fa-file-invoice-dollar"></i> Membership Details</h3>
+        <div class="form-grid">
+          <div class="form-field">
+            <label>Payment Method <span class="req">*</span></label>
+            <div class="radio-group" role="radiogroup" aria-required="true">
+              <label class="radio-pill">
+                <input type="radio" name="Payment Method" value="Bank Transfer" required>
+                <i class="fas fa-university"></i> Bank Transfer
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="Payment Method" value="Cash">
+                <i class="fas fa-money-bill-wave"></i> Cash
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="Payment Method" value="Other">
+                <i class="fas fa-ellipsis-h"></i> Other
+              </label>
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Tax Receipt Required? <span class="req">*</span></label>
+            <div class="radio-group" role="radiogroup" aria-required="true">
+              <label class="radio-pill">
+                <input type="radio" name="Tax Receipt Required" value="Yes" required>
+                <i class="fas fa-check"></i> Yes
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="Tax Receipt Required" value="No">
+                <i class="fas fa-times"></i> No
+              </label>
+            </div>
+          </div>
+          <div class="form-field field-full">
+            <label for="skills">Skills You Can Offer</label>
+            <textarea id="skills" name="Skills Offered" placeholder="e.g. Cooking, IT, Accounting, Teaching, Maintenance, Photography…" rows="3"></textarea>
+            <small>Optional — helps us know how you can contribute to Seva</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── 5. Participation & Seva ───────────────────── -->
+      <div class="form-section-block">
+        <h3><i class="fas fa-hands-helping"></i> Participation &amp; Seva</h3>
+        <div class="checkbox-item">
+          <input type="checkbox" id="participation" name="Active Participation" value="Yes">
+          <label for="participation">I actively participate in GNDQ programs regularly</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="seva" name="Seva 2+ Years" value="Yes">
+          <label for="seva">I have been doing Seva at GNDQ for at least 2 years</label>
+        </div>
+      </div>
+
+      <!-- ─── 6. Declaration ─────────────────────────────── -->
+      <div class="form-section-block">
+        <h3><i class="fas fa-scroll"></i> Declaration</h3>
+        <div class="checkbox-item">
+          <input type="checkbox" id="dec1" name="Declaration 1" value="Agreed" required>
+          <label for="dec1">I belong to the Sikh faith and follow Sri Guru Granth Sahib Ji <span class="req">*</span></label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="dec2" name="Declaration 2" value="Agreed" required>
+          <label for="dec2">I follow the teachings of the Ten Gurus <span class="req">*</span></label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="dec3" name="Declaration 3" value="Agreed" required>
+          <label for="dec3">I will fulfill all dues and responsibilities as a member <span class="req">*</span></label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="dec4" name="Declaration 4" value="Agreed" required>
+          <label for="dec4">I support the establishment of Gurudwara Sahib in Queenstown <span class="req">*</span></label>
+        </div>
+      </div>
+
+      <!-- ─── 7. Privacy Consent ────────────────────────── -->
+      <div class="privacy-block" style="margin-bottom:24px;">
+        <div class="checkbox-item">
+          <input type="checkbox" id="privacy" name="Privacy Consent" value="Agreed" required>
+          <label for="privacy">
+            <strong>Privacy Consent: </strong>I consent to GNDQ collecting this data for membership and communication purposes
+            in accordance with the <strong>NZ Privacy Act</strong>. <span class="req">*</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- ─── 8. Signature ──────────────────────────────── -->
+      <div class="form-section-block">
+        <h3><i class="fas fa-pen-nib"></i> Signature &amp; Date</h3>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="signature">Signature (type your full name) <span class="req">*</span></label>
+            <input type="text" id="signature" name="Signature" class="sig-input" placeholder="Type your full name" required>
+          </div>
+          <div class="form-field">
+            <label for="sigDate">Date <span class="req">*</span></label>
+            <input type="date" id="sigDate" name="Date" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <i class="fas fa-paper-plane"></i> Submit Membership Application
+      </button>
+
+      <!-- OFFICE USE ONLY — hidden on screen, visible on print -->
+      <div class="office-use">
+        <h3>&#9632; OFFICE USE ONLY</h3>
+        <div class="office-grid">
+          <div class="office-field">
+            <label>Member ID</label>
+            <span class="write-line"></span>
+          </div>
+          <div class="office-field">
+            <label>Date Approved</label>
+            <span class="write-line"></span>
+          </div>
+          <div class="office-field">
+            <label>Receipt No.</label>
+            <span class="write-line"></span>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Guru Nanak Darbar Queenstown | Charitable Trust Regd. No. CC63766</p>
+    <p style="margin-top:6px;">Made by: <a href="https://ladla.co.nz" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.55);text-decoration:underline;">LADLA</a></p>
+    <p class="copyright">&copy; 2025 &mdash; All rights reserved | Built with Seva</p>
+  </footer>
+
+  <script>
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('sigDate').value = today;
+
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navLinks  = document.getElementById('navLinks');
+    if (mobileBtn) mobileBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+    function bindFileLabel(inputId, labelId) {
+      const input = document.getElementById(inputId);
+      const label = document.getElementById(labelId);
+      if (!input || !label) return;
+      input.addEventListener('change', () => {
+        label.textContent = input.files[0] ? input.files[0].name : label.dataset.default;
+      });
+      label.dataset.default = label.textContent;
+    }
+    bindFileLabel('photoFile', 'photoLabel');
+    bindFileLabel('idFile',    'idLabel');
+
+    document.getElementById('membershipForm').addEventListener('submit', function() {
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting&hellip;';
+    });
+  </script>
+</body>
+</html>
